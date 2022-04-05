@@ -9,9 +9,11 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dreqPy-{{ version }}.tar.gz
   sha256: d02e221bd431581c0e6da36c63021d3fc78ddbff06547eb4029362392cd3a592
+  patches:
+    - 0000-python-3.9.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - drq = dreqPy.dreqCmdl:main_entry
@@ -34,6 +36,7 @@ test:
   commands:
     - pip check
     - drq
+    - python -c "from dreqPy import dreq; dq = dreq.loadDreq()"
   requires:
     - pip
 

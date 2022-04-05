@@ -1,0 +1,12 @@
+diff -ruN dreqPy-1.0.33-orig/dreqPy/dreq.py dreqPy-1.0.33/dreqPy/dreq.py
+--- dreqPy-1.0.33-orig/dreqPy/dreq.py	2020-11-02 19:00:52.000000000 +0100
++++ dreqPy-1.0.33/dreqPy/dreq.py	2022-04-05 12:58:00.628485269 +0200
+@@ -654,7 +654,7 @@
+             print ('WARNING: version difference between %s [%s] and %s [%s]' % (self.docl[0][0],self.version,thisdoc,vl[0].text) )
+         else:
+           self.version = vl[0].text
+-        self.parent_map = dict((c, p) for p in root.getiterator() for c in p)
++        self.parent_map = dict((c, p) for p in root.iter() for c in p)
+       else:
+         if self.strings:
+           self.contentDoc = xml.dom.minidom.parseString( self.vsamp  )
