@@ -9,8 +9,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dreqPy-{{ version }}.tar.gz
   sha256: 12192a9d93c13db499b7ba1d285c1f340fd8f4e9c5202f35b892d7b4543a74df
-  patches:
-    - 0000-python-3.9.patch
 
 build:
   number: 0
