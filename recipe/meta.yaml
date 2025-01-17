@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dreqPy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dreqPy-{{ version }}.tar.gz
   sha256: 12192a9d93c13db499b7ba1d285c1f340fd8f4e9c5202f35b892d7b4543a74df
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - drq = dreqPy.dreqCmdl:main_entry
@@ -20,9 +20,9 @@ build:
 requirements:
   host:
     - pip
-    - python >=2.7
+    - python {{ python_min }}
   run:
-    - python >=2.7
+    - python >={{ python_min }}
     - lxml
     - requests
     - xlsxwriter
@@ -37,6 +37,7 @@ test:
     - python -c "from dreqPy import dreq; dq = dreq.loadDreq()"
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: http://proj.badc.rl.ac.uk/svn/exarch/CMIP6dreq/tags/01.00.33
